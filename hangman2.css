@@ -1,0 +1,85 @@
+
+
+#guessContainer
+{
+
+		float:left;
+    text-align: center;  color: green;
+	}
+
+
+#hangman-img-container
+{
+    /*float:left;*/
+    height: 105px;
+    width: 200px;
+    border: 3px solid;
+    padding-left: 15px;
+    margin: 20px;
+    font-size: 30;
+    font-weight: bold;
+    text-align: center;
+		color: green;
+}
+}
+
+#hangman-img-container b
+{
+
+    display: none;
+}
+
+.guessingWordContainer label
+{
+    font-size: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+#img
+{
+    width: 100px;
+    height: 100px;
+}
+
+
+.tryLetters
+{
+    background-color: aliceblue;
+    display: block;
+    width: 100%;
+    height: 50px;
+}
+
+.tryLetters a
+{
+    font-size: 20px;
+    padding: 2px;
+}
+
+.tryLetters ul
+{
+    list-style-type: none;
+}
+
+.tryLetters ul li
+{
+    display: inline-block;
+    padding-right: 15px;
+}
+
+.not-tried
+{
+    color: lightgrey;
+}
+
+.ok
+{
+    color: green;
+}
+
+.notok
+{
+    color: darkred;
+    text-decoration: line-through;
+}

@@ -1,0 +1,53 @@
+<html>
+<head>
+    <title>The HangMan Game SMU</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="hangman2.css" />
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="hangman2.js"></script>
+</head>
+<body>
+<style type="text/css">
+h2 {
+	color:purple;
+}
+</style>
+
+    <h2>  <p><div id="title">
+	      <pre><p> _    _                                                     </p></pre>
+	      <pre><p>| |  | |                                                    </p></pre>
+	      <pre><p>| |__| |   __ _   _ __     __ _   _ __ ___     __ _   _ __  </p></pre>
+	      <pre><p>|  __  |  / _` | | '_ \   / _` | | '_ ` _ \   / _` | | '_ \ </p></pre>
+	      <pre><p>| |  | | | (_| | | | | | | (_| | | | | | | | | (_| | | | | |</p></pre>
+	      <pre><p>|_|  |_|  \__,_| |_| |_|  \__, | |_| |_| |_|  \__,_| |_| |_|</p></pre>
+	      <pre><p>                           __/ |                            </p></pre>
+	      <pre><p>                          |___/                             </p></pre>
+	    </div></h2>
+<p style="color:green;">
+	 Player
+        <u>Instructions:</u><br/>
+        P1: Input the a word into box and press 'Start game' button<br/>
+        P2: Try to guess the words by clicking on a letter . You have 7 lives. If the word contains the letter, it will be uncovered; otherwise you lost a life<br/>
+        and you guess the word, you win. If you lost all of the tries, you lost. Good luck ;)!
+        Please try it all
+    </p>
+    <div id="inputGuessWord">
+        <input type="password" id="guessWord" />
+        <button id="btnSubmit">Start game</button>
+    </div>
+    <div id="hangmanContainer">
+        <div id="hangman-img-container">
+            <b>&nbsp;O</b><br/>
+            <b>/&nbsp;</b>
+            <b>|&nbsp;</b>
+            <b>\</b><br/>
+            <b>/&nbsp;</b>
+            <b>\</b>
+        </div>
+        <div id="guessContainer">
+            <div class="guessingWordContainer"></div>
+            <label>Tap a letter</label>
+            <div class="tryLetters"></div>
+        </div>
+    </div>
+</body>
