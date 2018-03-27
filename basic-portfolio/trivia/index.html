@@ -1,0 +1,256 @@
+<!DOCTYPE html><html lang='en' class=''>
+<head><
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width = device-width, initial-scale = 1">
+<link href='https://fonts.googleapis.com/css?family=Chonburi' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
+
+
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css'><link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'><link rel='stylesheet prefetch' href='https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css'>
+<style class="jp styles">html, body, div, span, object, iframe, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+body {
+    background-color: #94618e;
+    line-height:1;
+    color: white;
+}
+
+.jumbotron {
+    background-color:#49274a !important;
+}
+
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section {
+    display:block;
+}
+
+nav ul {
+    list-style:none;
+}
+
+blockquote, q {
+    quotes:none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content:'';
+    content:none;
+}
+/*end of default style resetting*/
+
+h1 {
+  font-size: 20vw;
+  font-family: 'Chonburi', cursive;
+}
+
+.ui-widget-header {
+    background-image: none !important;
+    background-color: #f4decb !important;
+}
+
+label{
+  display: inline;
+}
+
+h3, #next {
+  text-align: center;
+  display: inline-block;
+  border-radius: 10%;
+}
+
+#result {
+  font-family: 'Press Start 2P', cursive !important;
+  font-weight: bold;
+  font-size: 1.5em;
+  color: #036;
+}
+
+input[name="option"] {
+  float:left;
+
+}
+
+#form div{
+  margin:auto;
+  max-width: 205px;
+}
+
+#progressbar {
+  float: none;
+  margin: auto;
+  margin-top: 20px;
+
+  width: 50%;
+ }
+
+#container {
+  text-align: center;
+}
+
+input, select {
+    vertical-align:middle;
+}
+
+.button {
+    display: inline-block;
+    padding: 1em;
+    background-color: #79BD9A;
+    text-decoration: none !important;
+    color: white !important;
+}
+body{
+  text-align: center;
+}
+
+.progress-bar {
+  float: left;
+  width: 0;
+  /*height: 100%;*/
+  font-size: 12px;
+  line-height: 20px;
+  color: #fff;
+  text-align: center;
+  background-color: #337ab7;
+  -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15);
+          box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15);
+  -webkit-transition: width .6s ease;
+       -o-transition: width .6s ease;
+          transition: width .6s ease;
+}
+
+</style></head><body>
+<h1> Trivia </h1>
+<br/>
+<br/>
+<a href="#" id="start" class="btn btn-primary btn-lg">Let's Begin</a>
+<br/>
+<div class="well jumbotron">
+  <h3 id="question"></h3>
+  <br/><br/>
+  <form id="form">
+
+  </form>
+  <br/>
+  <a href="#" id="next" class="button">Next</a><br/>
+  <div id="progressbar" class="progress-bar progress-bar-striped"></div>
+</div>
+<div id="result"></div>
+<script src=></script><script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js'></script><script src='//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
+<script >function QuizQuestion(question, choices, correctAnswer){
+  this.question = question;
+  this.choices = choices;
+  this.correctAnswer = correctAnswer;
+}
+
+var allQuestions = [
+  new QuizQuestion("Grand Central Terminal, Park Avenue, New York is the world's",["largest railway station", "highest railway station", "longest railway station", "None of the above"],0),
+  new QuizQuestion("Entomology is the science that studies",["Behavior of human beings", "Insects", "The origin and history of technical and scientific terms"],1),
+  new QuizQuestion("Eritrea, which became the 182nd member of the UN in 1993, is in the continent of",[ "Asia", "Africa", "Europe", "Australia"],1),
+  new QuizQuestion(" Garampani sanctuary is located at ",["Junagarh, Gujarat", "Diphu, Assam", "Kohima, Nagaland", "Gangtok, Sikkim"],1),
+  new QuizQuestion("For which of the following disciplines is Nobel Prize awarded?",["Physics and Chemistry", "Physiology or Medicine","Literature, Peace and Economics","All of the above" ],3),
+  new QuizQuestion("Hitler party which came into power in 1933 is known as",["Labor Party", "Nazi Party", "Ku-Klux-Klan","Democratic Party"],1),
+  new QuizQuestion("The headquarter of International Atomic Energy Agency (IAEA) are situated at ",["Vienna", "Rome", "Geneva","Paris"],0),
+  new QuizQuestion("Where is the permanent secretariat of the SAARC?",["Kathmandu", "New Delhi", "Islamabad", "Colombo"],0),
+  new QuizQuestion("The Olympic Flame symbolises ",["unity among various nations of the world", "speed, perfection and strength", "sports as a means for securing harmony among nations", "continuity between the ancient and modern games"],3),
+  new QuizQuestion("The number of already named bones in the human skeleton is",["200", "206", "212", "218"],1),
+  /*
+  new QuizQuestion("What has a tail but no body?",["A human", "A coin", "A cloud"],1),
+  new QuizQuestion("What word in the English language is always spelled incorrectly?",["It's possible to spell anything right as long as you learn it", "Shakespeare", "Onomatopoeia", "Incorrectly"],2),
+  new QuizQuestion("When do you stop at green and go at red?",["Watermelon!", "Traffic light!", "Garden"],0),
+  new QuizQuestion("What rotates but still remains in the same place?",["Bottle (spin the bottle game)", "Clock", "Stairs"],1),
+  new QuizQuestion("How can you lift an elephant with one hand?",["Truck","Use both hands!", "Use a lever", "There is no such thing"],2)
+*/
+];
+
+var currentquestion = 0;
+var correctAnswers = 0;
+
+function setupOptions() {
+  $('#question').html(parseInt(currentquestion) + 1 + ". " + allQuestions[currentquestion].question);
+  var options = allQuestions[currentquestion].choices;
+  var formHtml = '';
+  for (var i = 0; i < options.length; i++) {if (window.CP.shouldStopExecution(1)){break;}
+    formHtml += '<div><input type="radio" name="option" value="' + i + '" class="options"><label for="option' + i + '">' + options[i] + '</label></div><br/>';
+  }
+window.CP.exitedLoop(1);
+
+  $('#form').html(formHtml);
+  $(".options:eq(0)").prop('checked', true);
+}
+
+function checkAns() {
+  if ($("input[name=option]:checked").val() == allQuestions[currentquestion].correctAnswer) {
+    correctAnswers++;
+  }
+}
+
+$(document).ready(function(){
+
+  var $jumbotron = $(".jumbotron");
+  var $start = $("#start");
+  var $progressbar = $("#progressbar");
+  var $next = $("#next");
+  var $result = $("#result");
+
+	$jumbotron.hide();
+	$start.click(function() {
+	    $jumbotron.fadeIn();
+	    $(this).hide();
+  	});
+
+	$(function() {
+		$progressbar.progressbar({
+			max: allQuestions.length-1,
+			value: 0
+		});
+	});
+
+	setupOptions();
+
+	$next.click(function(){
+			event.preventDefault();
+			checkAns();
+			currentquestion++;
+			$(function() {
+    			$progressbar.progressbar({
+      				value: currentquestion
+    			});
+  			});
+			if(currentquestion<allQuestions.length){
+				setupOptions();
+				if(currentquestion==allQuestions.length-1){
+					$next.html("Submit");
+					$next.click(function(){
+						$jumbotron.hide();
+						$result.html("You correctly answered " + correctAnswers + " out of " + currentquestion + " questions! ").hide();
+						$result.fadeIn(1500);
+					});
+
+				}
+
+			};
+	});
+});
+
+
+</script>
+</body></html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Giphy App</title>
+</head>
+<body>
+  <h1  style="font-family:impact;"style="color:lightgreen;" </h1>
+      <h1 Why Don't You Search Some Gifs! </h1>
+  <h2  style="font-family:impact;"style="color:lightgreen;" </h2>
+
+
+  <div class="info">
+    <p> <p style="color:lightblue;">Search for Amazing Memes! </p>
+      <form class="gif-form">
+        <input type="text" id="form-value" class="search-input-rounded">
+        <button type="submit" class="search_button"> Search for GIFs </button>
+        <input type="reset" id="reset_button" value="Reset">
+      </form>
+      <style>
+body {background-color: black;}
+</style>
+
+      </style>
+      <div <
+      <div class="rando_facts animated bounceIn">
+        <img id="here_is_gif" src=""/>
+      </div>
+  </div>
+
+
+  <!-- Link in jQuery from CDN -->
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+  <!-- My JavaScript -->
+  <script type="text/javascript">
+
+    // This waits for the page to load before calling our jQuery
+    $( document ).ready(function(){
+
+      // Part 1 - Collect User Input Using jQuery Click Listener note we use the class (.) of search_button
+      $('.search_button').on('click', function(){
+
+        // Collect user by grabbing the input form's value via id (#)
+        var userInput = $('#form-value').val().trim();
+
+        // Change the input to suit the API (ie change spaces to +)
+        userInput = userInput.replace(/ /g, "+");
+
+        // Create the Giphy API URL
+        var queryURL = 'http://api.giphy.com/v1/gifs/search?q=' + userInput + '&api_key=dc6zaTOxFJmzC';
+
+        // Part 2 - Use AJAX to call GIPHY API (note that the .done() function waits for the API to respond)
+        $.ajax({url: queryURL, method: 'GET'}).done(function(response){
+
+          // This is the API response data. It's a JSON object of 25 gifs
+          console.log(response.data);
+
+          // For simplicity, we will take the first gif (ie. at postion 0)
+          var giphyURL = response.data[0].images.fixed_height.url;
+          console.log(giphyURL)
+
+          // Now you can pass that into your "here_is_gif" <img> tag using its id (#)
+          $('#here_is_gif').attr('src', giphyURL);
+
+        });
+
+        // Part 3 - Clear the Gif using the reset_button id (#)
+        $('#reset_button').on('click', function(){
+          // Grab the img using the id and change the src to empty to remove the image
+          $('#here_is_gif').attr("src",'');
+        })
+
+
+        // If using a jQuery click listner on a Submit button, you need to return false to prevent the default page refresh
+        return false;
+      })
+
+
+    });
+
+  </script>
+
+</body>
+</html>
